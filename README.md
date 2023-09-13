@@ -21,7 +21,7 @@ This PoolManager application exposes three public APIs as following:
    ```json
    {
       "poolId": <integer>,
-      "poolValues": [integers]
+      "poolValues": <[integers]>
    }
    ```
    - note: 
@@ -38,7 +38,7 @@ This PoolManager application exposes three public APIs as following:
    ```json
    {
       "poolId": <integer>,
-      "percentile": <integer>
+      "percentile": <float>
    }
    ```
     - responses:
