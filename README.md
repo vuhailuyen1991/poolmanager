@@ -45,7 +45,7 @@ This PoolManager application exposes three public APIs as following:
         - 200 if pool exists. Response  body is a json object contains the calculated value and the size of `poolValues`
          e.g. ``` {"count": 4, "value": 2 }```
         - 404 if pool does not exist
-        - 400 if request is malformed i.e. <poolId> / <percentile> is not a number
+        - 400 if request is malformed i.e. `poolId` or `percentile` is not a number
 
 # Installation
 - Install Java 8 and sbt. 
