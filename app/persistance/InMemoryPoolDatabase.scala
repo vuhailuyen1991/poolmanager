@@ -19,5 +19,5 @@ class InMemoryPoolDatabase extends PoolDatabase {
 }
 
 private object Pools {
-  val map = new mutable.HashMap[Long, mutable.Seq[Long]]()
+  var map = new mutable.HashMap[Long, mutable.Seq[Long]]()
 }
