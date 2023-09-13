@@ -1,0 +1,11 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+POST    /api/pools                          controllers.api.AddPoolController.addPool()
+POST    /api/pools/percentile               controllers.api.GetPoolPercentileController.getPoolPercentileValue()
+GET     /api/pools/:id                      controllers.api.GetPoolController.getPoolById(id: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
