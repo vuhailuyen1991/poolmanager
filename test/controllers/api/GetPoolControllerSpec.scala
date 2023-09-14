@@ -2,14 +2,14 @@ package controllers.api
 
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerTest
-import persistance.InMemoryPoolDatabase
+import persistance.SingletonInMemoryPoolDatabase
 import play.api.Play.materializer
 import play.api.libs.json.Json
 import play.api.test._
 import play.api.test.Helpers._
 
 class GetPoolControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
-  private val database = new InMemoryPoolDatabase()
+  private val database = SingletonInMemoryPoolDatabase()
 
   "GetPoolController /api/pools/:id GET" should {
     "get pool from pool database" in {

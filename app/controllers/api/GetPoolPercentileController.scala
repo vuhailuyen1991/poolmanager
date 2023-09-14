@@ -2,14 +2,14 @@ package controllers.api
 
 import core.{ApachePercentileCalculator, SimplePercentileCalculator}
 import models.{PoolPercentileQuery, PoolPercentileQueryResult}
-import persistance.InMemoryPoolDatabase
+import persistance.SingletonInMemoryPoolDatabase
 import play.api.libs.json.{Json, OFormat}
 import play.api.mvc.{Action, AnyContent, BaseController, ControllerComponents}
 
 import javax.inject.Inject
 
 class GetPoolPercentileController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
-  private val database = new InMemoryPoolDatabase()
+  private val database = SingletonInMemoryPoolDatabase()
   private val simplePercentileCalculator = new SimplePercentileCalculator()
   private val apachePercentileCalculator = new ApachePercentileCalculator()
 

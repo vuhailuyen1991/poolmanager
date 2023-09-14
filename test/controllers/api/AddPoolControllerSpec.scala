@@ -3,7 +3,7 @@ package controllers.api
 import com.typesafe.config.{ConfigFactory, ConfigValueFactory}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerTest
-import persistance.InMemoryPoolDatabase
+import persistance.SingletonInMemoryPoolDatabase
 import play.api.Configuration
 import play.api.Play.materializer
 import play.api.libs.json.{JsArray, Json}
@@ -12,7 +12,7 @@ import play.api.test.Helpers._
 
 
 class AddPoolControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
-  private val database = new InMemoryPoolDatabase()
+  private val database = SingletonInMemoryPoolDatabase()
 
   "AddPoolController /api/pools POST" should {
     "add new pool to pool database" in {

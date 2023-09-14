@@ -4,7 +4,7 @@ import scala.collection.mutable
 import java.util.concurrent.ConcurrentHashMap
 import scala.jdk.CollectionConverters.ConcurrentMapHasAsScala
 
-class InMemoryPoolDatabase extends PoolDatabase {
+class SingletonInMemoryPoolDatabase extends PoolDatabase {
   override def get(id: Long): Option[Seq[Long]] =
     Pools.map.get(id).map(_.toSeq)
 
@@ -18,6 +18,10 @@ class InMemoryPoolDatabase extends PoolDatabase {
   override def truncate(): Unit = Pools.map.clear()
 
   override def size(): Long = Pools.map.size
+}
+
+object SingletonInMemoryPoolDatabase {
+  def apply(): SingletonInMemoryPoolDatabase = new SingletonInMemoryPoolDatabase()
 }
 
 private object Pools {

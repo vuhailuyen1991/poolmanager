@@ -4,8 +4,8 @@ import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
-class InMemoryPoolDatabaseSpec extends AnyFunSpec with Matchers with BeforeAndAfterEach {
-  private val database = new InMemoryPoolDatabase()
+class SingletonInMemoryPoolDatabaseSpec extends AnyFunSpec with Matchers with BeforeAndAfterEach {
+  private val database = new SingletonInMemoryPoolDatabase()
 
   override def afterEach() = {
     database.truncate()
