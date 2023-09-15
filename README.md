@@ -13,7 +13,7 @@ This PoolManager application exposes three public APIs as following:
     - responses:
       - 200 if pool exists. Response  body is a json array of `poolValues` e.g. `[1, 2, 3, 4]`
       - 404 if pool does not exist
-      - 400 if request is malformed i.e. :poolId is not an integer
+      - 400 if request is malformed i.e. <poolId> is not an integer
 2. Create Pool
    - uri: `/api/pools`
    - method: POST
