@@ -41,6 +41,7 @@ This PoolManager application exposes three public APIs as following:
       "percentile": <float>
    }
    ```
+   `percentile` must be in range [1:100]
     - responses:
         - 200 if pool exists. Response  body is a json object contains the calculated value and the size of `poolValues`
          e.g. ``` {"count": 4, "value": 2 }```
