@@ -23,12 +23,16 @@ class GetPoolPercentileController @Inject()(val controllerComponents: Controller
 
     maybeQuery match {
       case Some(query) =>
-        val maybePool = database.get(query.poolId)
-        maybePool match {
-          case Some(pool) =>
-            val value = retrievePercentileValue(query.percentile, pool)
-            Ok(Json.toJson(PoolPercentileQueryResult(pool.size, value)))
-          case None => NotFound
+        if (query.percentile > 100 || query.percentile < 0)
+          BadRequest
+        else {
+          val maybePool = database.get(query.poolId)
+          maybePool match {
+            case Some(pool) =>
+              val value = retrievePercentileValue(query.percentile, pool)
+              Ok(Json.toJson(PoolPercentileQueryResult(pool.size, value)))
+            case None => NotFound
+          }
         }
       case None => BadRequest
     }
